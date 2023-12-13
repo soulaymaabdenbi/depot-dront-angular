@@ -1,0 +1,74 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div class="row">
+  <div class="card col-md-6 offset-md-3 offset-md-3">
+    <div class="row">
+      <h3 class="text-center">Create Etudiant</h3>
+      <hr />
+      <div class="card-body">
+        <form [formGroup]="etudiantForm" (ngSubmit)="onSubmit()" novalidate #form="ngForm">
+          <div class="form-group">
+            <label for="nomEt">Nom</label>
+            <input type="text" class="form-control" id="nomEt" formControlName="nomEt">
+            <div *ngIf="etudiantForm.get('nomEt')?.hasError('required') && etudiantForm.get('nomEt')?.touched" class="text-danger">
+              Nom est requis.
+            </div>
+            <div *ngIf="etudiantForm.get('nomEt')?.hasError('minlength')" class="text-danger">
+              Le nom doit contenir au moins 4 lettres.
+            </div>
+            <div *ngIf="etudiantForm.get('nomEt')?.hasError('containsNumber')" class="text-danger">
+              Le nom ne doit pas contenir de chiffres.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="prenomEt">Prenom</label>
+            <input type="text" class="form-control" id="prenomEt" formControlName="prenomEt">
+            <div *ngIf="etudiantForm.get('prenomEt')?.hasError('required') && etudiantForm.get('prenomEt')?.touched" class="text-danger">
+              Prenom est requis.
+            </div>
+            <div *ngIf="etudiantForm.get('prenomEt')?.hasError('minlength')" class="text-danger">
+              Le prenom doit contenir au moins 4 lettres.
+            </div>
+            <div *ngIf="etudiantForm.get('prenomEt')?.hasError('containsNumber')" class="text-danger">
+              Le prenom ne doit pas contenir de chiffres.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ecole">Ecole</label>
+            <input type="text" class="form-control" id="ecole" formControlName="ecole">
+            <div *ngIf="etudiantForm.get('ecole')?.hasError('required') && etudiantForm.get('ecole')?.touched" class="text-danger">
+              Ecole est requis.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cin">Cin</label>
+            <input type="text" class="form-control" id="cin" formControlName="cin" pattern="[0-9]{8}">
+            <div *ngIf="etudiantForm.get('cin')?.hasError('required') && etudiantForm.get('cin')?.touched" class="text-danger">
+              Cin est requis.
+            </div>
+            <div *ngIf="etudiantForm.get('cin')?.hasError('pattern') && etudiantForm.get('cin')?.touched" class="text-danger">
+              Cin doit contenir 8 chiffres.
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="dateNaissance">Date de Naissance</label>
+            <input type="date" class="form-control" id="dateNaissance" formControlName="dateNaissance" [appAgeValidation]="18"(ageValidationStatus)="onAgeValidationStatus($event)">
+            <div *ngIf="etudiantForm.get('dateNaissance')?.hasError('appAgeValidation')" class="text-danger">
+              L'étudiant doit avoir au moins 18 ans
+            </div>
+          </div>
+
+          <br />
+          <button type="submit" [disabled]="!etudiantForm.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

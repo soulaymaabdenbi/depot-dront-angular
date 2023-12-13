@@ -1,0 +1,153 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<main id="main" class="main">
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <!-- Section Title -->
+            <div class="row">
+              <div class="col-6">
+                <h5 class="card-title">Liste de produits</h5>
+              </div>
+              <div class="col-6 text-right mt-3">
+                <!-- Add Product Button -->
+                <button class="btn offset" (click)="openProductModal()">
+                  <i data-feather="plus" class="d-sm-none d-inline-block mr-0 mr-sm-1"></i>
+                  <span class="d-none d-sm-inline-block">Ajouter un produit</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Modal -->
+            <ng-template #productModal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title">{{ isEditMode ? 'Edit' : 'Add' }} Product</h4>
+                <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" id="name" class="form-control" formControlName="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" class="form-control" formControlName="description">
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" class="form-control" formControlName="price">
+                  </div>
+                  <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" class="form-control" formControlName="quantity">
+                  </div>
+                  <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" class="form-control" formControlName="category">
+                      <option value="" disabled selected>Select a Category</option>
+                      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+              </div>
+            </ng-template>
+
+            <!-- Search Box -->
+            <div class="row">
+              <div class="col-4">
+                <div class="search-container">
+                  <input
+                    [(ngModel)]="searchValue"
+                    type="search"
+                    placeholder="Search..."
+                    class="search-input form-control ml-25"
+                    (keyup)="filterProducts($event)"
+                  />
+                  <a class="search-btn">
+                    <i class="fas fa-search"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Table -->
+            <ngx-datatable
+              class="bootstrap core-bootstrap"
+              [rows]="filteredProducts"
+              [headerHeight]="50"
+              [footerHeight]="50"
+              [rowHeight]="'auto'"
+              [scrollbarH]="true">
+
+              <!-- Product Name Column -->
+              <ngx-datatable-column name="Name" prop="name">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.name }}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <!-- Description Column -->
+              <ngx-datatable-column name="Description" prop="description">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.description }}
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- Reference Column -->
+              <ngx-datatable-column name="Reference" prop="reference">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.reference }}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <!-- Price Column -->
+              <ngx-datatable-column name="Price" prop="price">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.price | currency }}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <!-- Quantity Column -->
+              <ngx-datatable-column name="Quantity" prop="quantity">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.quantity }}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <!-- Category Column -->
+              <ngx-datatable-column name="Category" prop="category.name">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.category.name }}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <!-- Actions Column -->
+              <ngx-datatable-column name="Actions">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <button type="button" class="btn btn-warning btn-sm" (click)="openEditModal(row)">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm" (click)="deleteProduct(row.id)">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+
+            </ngx-datatable>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

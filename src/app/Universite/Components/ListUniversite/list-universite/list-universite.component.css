@@ -1,0 +1,14 @@
+.custom-button {
+    background-color: white;
+    border: 1px solid black;
+    color: black; /* Add this line to set the color of the text */
+  }
+  
+  .button-text {
+    margin-left: 5px; /* Add this line to provide some spacing between the icon and text */
+  }
+
+  .btn-sm {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+  }

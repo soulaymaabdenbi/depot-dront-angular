@@ -1,0 +1,56 @@
+
+.btn-transparent {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 1rem; 
+    cursor: pointer;
+}
+.btn-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.button-space {
+    margin-right: 30px; 
+  }
+.blue-button {
+    background-color: blue;
+    color: white; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+  }
+
+
+  /*barre de recherche*/
+  .custom-search-bar {
+    position: relative;
+    display: inline-block;
+  }
+  
+  input[type="text"] {
+    width: 300px; 
+    height: 40px; 
+    padding-right: 30px; /* Ajustez la marge à droite pour l'icône */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajustez la position à droite */
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  /* Style de l'icône (FontAwesome) */
+  .search-icon i {
+    font-size: 18px;
+    color: #333;
+  }
+  
