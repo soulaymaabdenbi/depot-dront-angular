@@ -20,6 +20,7 @@ import { CategoryComponent } from './category/category.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import {AddInvoiceComponent} from "./invoice/add-invoice/add-invoice.component";
 import {InvoiceDetailsComponent} from "./invoice/invoice-details/invoice-details.component";
+import { ClientComponent } from './client/client.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {InvoiceDetailsComponent} from "./invoice/invoice-details/invoice-details
     InvoiceComponent,
     AddInvoiceComponent,
     InvoiceDetailsComponent,
+    ClientComponent,
   ],
   exports: [
     HeaderComponent,

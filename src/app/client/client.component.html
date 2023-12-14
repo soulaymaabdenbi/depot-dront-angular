@@ -1,0 +1,188 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<main id="main" class="main">
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+           
+            <div class="row">
+              <div class="col-6">
+                <h5 class="card-title">Liste des clients</h5>
+              </div>
+
+            </div>
+
+
+          
+            <ng-template #clientModal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title">{{ isEditMode ? 'Edit' : 'Add' }} Client</h4>
+                <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="name">Nom du client</label>
+                    <input type="text" id="name" class="form-control" formControlName="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="surname">Prenom du client</label>
+                    <input type="text" id="surname" class="form-control" formControlName="surname">
+                  </div>
+                  <div class="form-group">
+                    <label for="sex">Sexe</label>
+                    <input type="text" id="sex" class="form-control" formControlName="sex">
+                  </div>
+                  <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" class="form-control" formControlName="location">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" formControlName="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="entreprise">Entreprise</label>
+                    <input type="text" id="entreprise" class="form-control" formControlName="entreprise">
+                  </div>
+                  <div class="form-group">
+                    <label for="dob">Date</label>
+                    <input type="date" id="dob" class="form-control" formControlName="dob">
+                  </div>
+                  <div class="form-group">
+                    <label for="tel">Tel</label>
+                    <input type="number" id="tel" class="form-control" formControlName="tel">
+                  </div>
+                  <div class="form-group">
+                    <label for="postcard">Code Postal</label>
+                    <input type="number" id="postcard" class="form-control" formControlName="postcard">
+                  </div>
+                  
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+              </div>
+            </ng-template>
+
+        
+            <div class="row">
+              <div class="col-6">
+                <div class="search-container">
+                    <input
+                    [(ngModel)]="searchValue"
+                    type="search"
+                    placeholder="Search..."
+                    class="search-input form-control ml-25"
+                    (keyup)="filterClients($event)"
+                  />
+                  <a class="search-btn">
+                    <i class="fas fa-search"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-6 " style="text-align: right">
+           
+                
+
+                <button class="btn btn-primary " (click)="openClientModal()">
+                  <i class="fa fa-plus mr-1"></i>Ajouter un client
+                </button>
+              </div>
+            </div>
+
+            <ngx-datatable
+              class="bootstrap core-bootstrap"
+              [rows]="filteredClients"
+              [headerHeight]="50"
+              [footerHeight]="50"
+              [rowHeight]="'auto'"
+              [scrollbarH]="true">
+
+            
+              <ngx-datatable-column name="name" prop="name">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.name }}
+                </ng-template>
+              </ngx-datatable-column>
+
+             
+              <ngx-datatable-column name="surname" prop="surname">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.surname}}
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- Reference Column -->
+              <ngx-datatable-column name="sex" prop="sex">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.sex}}
+                </ng-template>
+              </ngx-datatable-column>
+
+              
+              <ngx-datatable-column name="location" prop="location">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.location }} 
+                </ng-template>
+              </ngx-datatable-column>
+
+            
+              <ngx-datatable-column name="email" prop="email">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.email}}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="entreprise" prop="entreprise">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.entreprise}}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="dob" prop="dob">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.dob}}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="tel" prop="tel">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.tel}}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="postcard" prop="postcard">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.postcard}}
+                </ng-template>
+              </ngx-datatable-column>
+
+           
+
+              <ngx-datatable-column name="Actions">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <button type="button" class="btn btn-warning btn-sm" (click)="openEditModal(row)">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm" (click)="deleteClient(row.id)">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+
+            </ngx-datatable>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
+
