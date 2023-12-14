@@ -15,14 +15,9 @@ import {CategoryComponent} from "./category/category.component";
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'Login', component: LoginComponent },
-  { path: 'Table', component: TableComponent },
-  { path: 'Ajouter', component: AjoutComponent },
   {path: 'products', component: ProductComponent},
   {path: 'categories', component: CategoryComponent},
-  { path: 'Modifier', component: ModifComponent },
-  { path: 'etudiants', loadChildren: () => import('./etudiant/etudiant/etudiant.module').then(m => m.EtudiantModule) },
-  { path: 'universites', loadChildren: () => import('./Universite/Components/Routing/universite.module').then(m => m.UniversiteModule) },
-  { path: '**', component: E404Component },
+   { path: '**', component: E404Component },
 
 ];
 
