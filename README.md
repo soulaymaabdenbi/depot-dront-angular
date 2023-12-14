@@ -1,27 +1,20 @@
-# BackOffice
+                                                    Appl.Web-Distribues-DevQuadra
+Projet de microservices innovants : architecture axée sur les performances Ce projet de validation présente une architecture de microservices dynamique et performante, mettant en œuvre différentes technologies pour répondre à des exigences spécifiques. Microservices individuels, conçus à l'aide de Spring Boot et intégrant H2 ou MySQL comme base. Le caractère unique de l'équipe se reflète dans la mise en œuvre d'un microservice doté de la technologie avancée Node.js, ainsi que de bases de données MongoDB. Cette diversité technologique enrichit la solution et offre des perspectives diverses et des approches complémentaires.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
 
-## Development server
+La mise en œuvre du serveur de découverte Eureka facilite l'identification et l'accès à tous les microservices, tandis que la passerelle (proxy) assure une configuration fluide des routes, assurant ainsi une coordination efficace des services.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Pour assurer une communication fluide entre les microservices, un serveur de configuration est déployé, intégrant ainsi l'échange de données et le flux d'informations.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+Le volet de déploiement de microservices sur des conteneurs met en évidence une approche moderne et évolutive, améliorant la portabilité et la gestion flexible des services.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+En termes de sécurité, l'intégration de Keycloak améliore la robustesse de l'architecture, garantissant une sécurité adéquate pour les microservices.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+La validation de ce projet reposera sur des critères rigoureux, notamment des choix architecturaux cohérents, une structuration fonctionnelle et des données cohérente, des résultats de mise en œuvre convaincants, le respect des technologies prévues, une documentation complète, une structuration systématique du code et une riche galerie d'API avec les meilleures pratiques et présence. Pour un référentiel de travail complet et organisé sur Git.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Cette description met en évidence les différents aspects et composantes du projet tout en mettant en évidence les principaux critères d'évaluation pour la validation.
