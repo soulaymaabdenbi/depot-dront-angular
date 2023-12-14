@@ -1,20 +1,58 @@
-                                                    Appl.Web-Distribues-DevQuadra
-Projet de microservices innovants : architecture axée sur les performances Ce projet de validation présente une architecture de microservices dynamique et performante, mettant en œuvre différentes technologies pour répondre à des exigences spécifiques. Microservices individuels, conçus à l'aide de Spring Boot et intégrant H2 ou MySQL comme base. Le caractère unique de l'équipe se reflète dans la mise en œuvre d'un microservice doté de la technologie avancée Node.js, ainsi que de bases de données MongoDB. Cette diversité technologique enrichit la solution et offre des perspectives diverses et des approches complémentaires.
+# Projet gestion de stock microservices
+
+## Introduction
+
+Ce projet est une application de gestion de stock distribuée en microservices. Il utilise les technologies suivantes : Spring Boot / Docker /Kubernetes /Eureka /Keycloak 
 
 
-La mise en œuvre du serveur de découverte Eureka facilite l'identification et l'accès à tous les microservices, tandis que la passerelle (proxy) assure une configuration fluide des routes, assurant ainsi une coordination efficace des services.
+## Architecture
 
+L'architecture du système est présentée dans le diagramme ci-dessous :
+<div>
+  <img src ="https://github.com/soulaymaabdenbi/depot-dront-angular/assets/80163229/f992277f-48b8-41f5-8f42-52a19ed4cc82" width="300">
+</div>
 
-Pour assurer une communication fluide entre les microservices, un serveur de configuration est déployé, intégrant ainsi l'échange de données et le flux d'informations.
+Le système est composé de cinq microservices :
 
+- #### Microservice1 :
+        gère les produits
+- #### Microservice2 :
+       gère les catégories
+- #### Microservice3 :
+         gère les clients
+- #### Microservice4 :
+         gère les commandes
+- #### Microservice5 :
+         gère les stocks
 
-Le volet de déploiement de microservices sur des conteneurs met en évidence une approche moderne et évolutive, améliorant la portabilité et la gestion flexible des services.
+Chaque microservice est développé avec Spring Boot et utilise une base de données différente.
 
+L'API Gateway est un microservice qui permet d'accéder aux autres microservices. Il utilise Eureka pour découvrir les microservices disponibles.
 
-En termes de sécurité, l'intégration de Keycloak améliore la robustesse de l'architecture, garantissant une sécurité adéquate pour les microservices.
+Keycloak est un serveur d'authentification qui permet d'authentifier les utilisateurs.
 
+## Lancement du système
 
-La validation de ce projet reposera sur des critères rigoureux, notamment des choix architecturaux cohérents, une structuration fonctionnelle et des données cohérente, des résultats de mise en œuvre convaincants, le respect des technologies prévues, une documentation complète, une structuration systématique du code et une riche galerie d'API avec les meilleures pratiques et présence. Pour un référentiel de travail complet et organisé sur Git.
+1. Installez Docker et Docker Compose.
+   
+2. Clonez le projet sur votre ordinateur.
+   
+3. Ouvrez un terminal dans le répertoire du projet.
+   
+4. #### Exécutez la commande suivante pour lancer les microservices :
+        docker-compose up
 
+Cette commande va lancer tous les microservices dans des conteneurs Docker.
 
-Cette description met en évidence les différents aspects et composantes du projet tout en mettant en évidence les principaux critères d'évaluation pour la validation.
+## Front Angular
+Le front Angular est un microservice qui consomme les API des microservices Spring Boot. Il est disponible sur le port 4200.
+
+#### Pour accéder au front Angular, ouvrez un navigateur Web et accédez à l'adresse suivante :
+          http://localhost:4200
+
+Vous devez être authentifié pour accéder au front Angular. Vous pouvez vous authentifier en utilisant le serveur d'authentification Keycloak.
+
+##### Pour obtenir les informations d'identification de l'utilisateur, vous pouvez utiliser la commande suivante :
+       docker logs api-gateway
+Cette commande va afficher les logs de l'API Gateway. Dans les logs, vous trouverez les informations d'identification de l'utilisateur par défaut.
+
