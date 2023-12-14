@@ -24,6 +24,8 @@ Le système est composé de cinq microservices :
          gère les commandes
 - #### Microservice5 :
          gère les stocks
+- #### Microservice6 :
+         gère les Factures
 
 Chaque microservice est développé avec Spring Boot et utilise une base de données différente.
 
