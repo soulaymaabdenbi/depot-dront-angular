@@ -1,0 +1,70 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<main id="main" class="main">
+  <section class="section">
+    <div class="container">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Liste des universités</h5>
+
+          <!-- Champ de recherche -->
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Rechercher..." >
+           
+            <button class="btn offset" [routerLink]="'create'">
+              <i data-feather="plus" class="d-sm-none d-inline-block mr-0 mr-sm-1"></i>
+              <span class="d-none d-sm-inline-block">Ajouter un produit</span>
+            </button>
+          </div>
+          
+
+          <!-- Tableau avec les données des universités -->
+          <table class="table table-striped mt-4">
+            <thead>
+              <tr>
+                <th>Id Employee</th>
+                <th>Name Employee</th>
+                <th>surName</th>
+                <th>Salary</th>
+                <th>Position</th>
+                <th>HiringDate</th>
+                <th>IsActive</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of employees ">
+                <td>{{ employee?.id}}</td>
+                <td>{{ employee?.name }}</td>
+                <td>{{ employee?.surname }}</td>
+                <td>{{ employee?.salary}}</td>
+                <td>{{ employee?.position}}</td>
+                <td>{{ employee?.hiringDate}}</td> 
+                <td>{{ employee?.active}}</td>
+                  <td>
+                    
+
+                    <button type="button" class="btn btn-warning btn-sm"  [routerLink]="['update/', employee.id]">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteBloc(employee)">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td> 
+              </tr>
+            </tbody>
+          </table>
+
+          
+
+        
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

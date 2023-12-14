@@ -11,7 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { LayoutComponentComponent } from './layout-component/layout-component.component';
 import { E404Component } from './e404/e404.component';
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
@@ -20,6 +19,7 @@ import { CategoryComponent } from './category/category.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import {AddInvoiceComponent} from "./invoice/add-invoice/add-invoice.component";
 import {InvoiceDetailsComponent} from "./invoice/invoice-details/invoice-details.component";
+
 
 
 @NgModule({
@@ -31,7 +31,6 @@ import {InvoiceDetailsComponent} from "./invoice/invoice-details/invoice-details
     ModifComponent,
     DashboardComponent,
     LoginComponent,
-    LayoutComponentComponent,
     E404Component,
     ProductComponent,
     CategoryComponent,

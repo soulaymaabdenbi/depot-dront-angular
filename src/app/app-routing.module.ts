@@ -8,10 +8,11 @@ import {CategoryComponent} from "./category/category.component";
 import {InvoiceComponent} from "./invoice/invoice.component";
 import {InvoiceDetailsComponent} from "./invoice/invoice-details/invoice-details.component";
 import {AddInvoiceComponent} from "./invoice/add-invoice/add-invoice.component";
-
+import { EmployeeRoutingModule } from './employee/Routing/Employee-routing.module';
 const routes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'Login', component: LoginComponent},
+  { path: 'employees', loadChildren: () => import('./employee/Routing/employee.module').then(m => m.EmployeeModule) },
   {path: 'products', component: ProductComponent},
   {path: 'categories', component: CategoryComponent},
   { path: 'invoice', component: InvoiceComponent},
@@ -22,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),EmployeeRoutingModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

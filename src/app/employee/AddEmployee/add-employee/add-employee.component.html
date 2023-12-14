@@ -1,0 +1,47 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<main id="main" class="main">
+<div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Ajouter Universite</h5>
+
+              <!-- Multi Columns Form -->
+              <form class="row g-3" (ngSubmit)="addNewEmployee()" [formGroup]="BlocForm">
+                <div class="col-md-12">
+                  <label for="inputName5" class="form-label">name d'employee : </label>
+                  <input type="text" class="form-control" formControlName="name">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputAddres5s" class="form-label">Surname :</label>
+                  <input type="text" class="form-control" formControlName="surname">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputAddres5s" class="form-label">Salary :</label>
+                    <input type="text" class="form-control" formControlName="salary">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputAddres5s" class="form-label">Position :</label>
+                    <input type="text" class="form-control" formControlName="position">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputAddres5s" class="form-label">HiringDate :</label>
+                    <input type="date" class="form-control" formControlName="hiringDate">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputAddres5s" class="form-label">IsActive :</label>
+                    <input type="text" class="form-control" formControlName="active">
+                  </div>
+                
+                
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Ajouter</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+              </form><!-- End Multi Columns Form -->
+
+            </div>
+          
+</div>
+</main>
+<app-footer></app-footer>
