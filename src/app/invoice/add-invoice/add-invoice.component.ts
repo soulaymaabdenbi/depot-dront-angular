@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { InvoiceServiceService } from '../invoice-service.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {InvoiceServiceService} from '../invoice-service.service';
 
 @Component({
   selector: 'app-add-invoice',
@@ -12,7 +12,7 @@ export class AddInvoiceComponent implements OnInit {
     {
       id: 0,
       name: "Bouhajja",
-      surname: "Alaeddine",
+      surname: "Soulayma",
       entreprise: "Ala's group",
       tel: "+2153655694",
       email: "ala@gmail.com",
@@ -22,7 +22,7 @@ export class AddInvoiceComponent implements OnInit {
     {
       id: 1,
       name: "Mohammed",
-      surname: "Ala",
+      surname: "Amal",
       entreprise: "Galaxy group",
       tel: "+2153655693",
       email: "ala_new@gmail.com",
@@ -32,7 +32,7 @@ export class AddInvoiceComponent implements OnInit {
     {
       id: 2,
       name: "mana3rafich",
-      surname: "Chiraz",
+      surname: "Nour",
       entreprise: "Chiraz beauty",
       tel: "+2153655695",
       email: "chiraz@gmail.com",
@@ -55,7 +55,10 @@ export class AddInvoiceComponent implements OnInit {
   methode: string = "";
   array: any;
 
-  constructor(private invoiceService: InvoiceServiceService, private router: Router) { }
+  constructor(private invoiceService: InvoiceServiceService, private router: Router) {
+  }
+
+  selectedClient: string;
 
   ngOnInit(): void {
   }
@@ -67,14 +70,16 @@ export class AddInvoiceComponent implements OnInit {
     });
   }
 
-  changeClient(val: any) {
-    this.array = this.clients.filter((data: any) => data.surname == val)[0];
-    this.client.name = this.array.name;
-    this.client.surname = this.array.surname;
-    this.client.entreprise = this.array.entreprise;
-    this.client.email = this.array.email;
-    this.client.tel = this.array.tel;
-    this.client.location = this.array.location;
-    this.client.sex = this.array.sex;
+  changeClient() {
+    this.array = this.clients.filter((data: any) => data.surname === this.selectedClient)[0];
+    if (this.array) {
+      this.client.name = this.array.name;
+      this.client.surname = this.array.surname;
+      this.client.entreprise = this.array.entreprise;
+      this.client.email = this.array.email;
+      this.client.tel = this.array.tel;
+      this.client.location = this.array.location;
+      this.client.sex = this.array.sex;
+    }
   }
 }

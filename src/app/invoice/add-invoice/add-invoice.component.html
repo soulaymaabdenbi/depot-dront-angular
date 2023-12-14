@@ -9,11 +9,12 @@
           <div class="d-flex flex-column align-items-center">
             <div class="form-group">
               <label for="client">Client</label>
-              <select class="form-control" (change)="changeClient($event.target)" id="client" name="client">
-                <option value="Alaeddine">Bouhajja Alaeddine</option>
-                <option value="Ala">Mohamed Ala</option>
-                <option value="Chiraz">Chiraz</option>
+              <select class="form-control" [(ngModel)]="selectedClient" (change)="changeClient()" id="client" name="client">
+                <option value="Soulayma">Soulayma Abdenbi</option>
+                <option value="Amal">Amal Achour</option>
+                <option value="Nour">Nour Batour</option>
               </select>
+
             </div>
             <div class="row justify-content-center">
               <div class="col-md-3">
@@ -59,8 +60,8 @@
                 </div>
               </div>
             </div>
-            <p class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+            <p class="d-flex justify-content-center mt-5">
+              <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Enregistrer</button>
             </p>
           </div>
         </form>

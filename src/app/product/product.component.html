@@ -10,16 +10,11 @@
             <!-- Section Title -->
             <div class="row">
               <div class="col-6">
-                <h5 class="card-title">Liste de produits</h5>
+                <h5 class="card-title">Liste des produits</h5>
               </div>
-              <div class="col-6 text-right mt-3">
-                <!-- Add Product Button -->
-                <button class="btn offset" (click)="openProductModal()">
-                  <i data-feather="plus" class="d-sm-none d-inline-block mr-0 mr-sm-1"></i>
-                  <span class="d-none d-sm-inline-block">Ajouter un produit</span>
-                </button>
-              </div>
+
             </div>
+
 
             <!-- Product Modal -->
             <ng-template #productModal let-modal>
@@ -32,7 +27,7 @@
               <div class="modal-body">
                 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
                   <div class="form-group">
-                    <label for="name">Product Name</label>
+                    <label for="name">Nom du produit</label>
                     <input type="text" id="name" class="form-control" formControlName="name">
                   </div>
                   <div class="form-group">
@@ -40,17 +35,17 @@
                     <input type="text" id="description" class="form-control" formControlName="description">
                   </div>
                   <div class="form-group">
-                    <label for="price">Price</label>
+                    <label for="price">Prix</label>
                     <input type="number" id="price" class="form-control" formControlName="price">
                   </div>
                   <div class="form-group">
-                    <label for="quantity">Quantity</label>
+                    <label for="quantity">Quantité</label>
                     <input type="number" id="quantity" class="form-control" formControlName="quantity">
                   </div>
                   <div class="form-group">
-                    <label for="category">Category</label>
+                    <label for="category">Catégorie</label>
                     <select id="category" class="form-control" formControlName="category">
-                      <option value="" disabled selected>Select a Category</option>
+                      <option value="" disabled selected>Choisir une catégorie</option>
                       <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
                     </select>
                   </div>
@@ -63,7 +58,7 @@
 
             <!-- Search Box -->
             <div class="row">
-              <div class="col-4">
+              <div class="col-6">
                 <div class="search-container">
                   <input
                     [(ngModel)]="searchValue"
@@ -77,6 +72,12 @@
                   </a>
                 </div>
               </div>
+              <div class="col-6 " style="text-align: right">
+                <!-- Add Product Button -->
+                <button class="btn btn-primary " (click)="openProductModal()">
+                  <i class="fa fa-plus mr-1"></i>Ajouter un produit
+                </button>
+              </div>
             </div>
 
             <!-- Product Table -->
@@ -89,7 +90,7 @@
               [scrollbarH]="true">
 
               <!-- Product Name Column -->
-              <ngx-datatable-column name="Name" prop="name">
+              <ngx-datatable-column name="Nom" prop="name">
                 <ng-template let-row="row" ngx-datatable-cell-template>
                   {{ row.name }}
                 </ng-template>
@@ -102,28 +103,28 @@
                 </ng-template>
               </ngx-datatable-column>
               <!-- Reference Column -->
-              <ngx-datatable-column name="Reference" prop="reference">
+              <ngx-datatable-column name="Référence" prop="reference">
                 <ng-template let-row="row" ngx-datatable-cell-template>
                   {{ row.reference }}
                 </ng-template>
               </ngx-datatable-column>
 
               <!-- Price Column -->
-              <ngx-datatable-column name="Price" prop="price">
+              <ngx-datatable-column name="Prix" prop="price">
                 <ng-template let-row="row" ngx-datatable-cell-template>
-                  {{ row.price | currency }}
+                  {{ row.price }} TND
                 </ng-template>
               </ngx-datatable-column>
 
               <!-- Quantity Column -->
-              <ngx-datatable-column name="Quantity" prop="quantity">
+              <ngx-datatable-column name="Quantité" prop="quantity">
                 <ng-template let-row="row" ngx-datatable-cell-template>
                   {{ row.quantity }}
                 </ng-template>
               </ngx-datatable-column>
 
               <!-- Category Column -->
-              <ngx-datatable-column name="Category" prop="category.name">
+              <ngx-datatable-column name="Catégorie" prop="category.name">
                 <ng-template let-row="row" ngx-datatable-cell-template>
                   {{ row.category.name }}
                 </ng-template>
