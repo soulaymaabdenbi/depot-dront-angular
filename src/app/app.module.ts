@@ -17,6 +17,7 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ProductComponent } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { CategoryComponent } from './category/category.component';
     E404Component,
     ProductComponent,
     CategoryComponent,
+    InvoiceComponent,
 
   ],
   exports: [
