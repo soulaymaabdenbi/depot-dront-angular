@@ -1,78 +1,91 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<main id="main" class="main">
+  <section class="section" style="margin: auto;">
+    <div class="row mb-2">
+      <div class="col-12 col-md-12">
+        <h2>INVOICE</h2>
+        <div class="row">
+          <div class="col-6">
+            <p>Invoice No: #00{{ no }}</p>
+            <p>Invoice token: {{ _id }}</p>
+          </div>
+          <div class="col-6">
+            <p>{{ company }}</p>
+            <p>{{ name }}@gmail.com</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p>Creation date: {{ date }}</p>
+          </div>
+          <div class="col-6">
+            <p>{{ name }} {{ surName }}</p>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+          <button class="btn btn-primary" (click)="addProductToInvoice()">Ajouter des produits</button>
+          <div class="col-6">
+            <select class="form-select" [(ngModel)]="product" name="product">
+              <option value="Sfinaria">Sfinaria</option>
+              <option value="sala9">sala9</option>
+              <option value="Kromb">Kromb</option>
+              <option value="Lo7">Lo7</option>
+              <option value="Ma3dnous">Ma3dnous</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <input class="form-control" [(ngModel)]="quant" required name="quant">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-12">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Nom du produit</th>
+            <th scope="col">Nom de catégorie</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Quantité de produit</th>
+            <th scope="col">Prix total du produit</th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let element of dataSource">
+            <th scope="row">{{ element.id }}</th>
+            <td>{{ element.name }}</td>
+            <td>{{ element.category_name }}</td>
+            <td>{{ element.price }}</td>
+            <td>{{ element.quantity }}</td>
+            <td>{{ element.total_price }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteProductFromInvoice(element.id)">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="row" style="width: 100%; margin-top: 20px;">
+          <div class="col-6">
+            <div class="text-center">{{ total_price }}</div>
+            <div class="text-center" style="font-size: 14px; color: dimgray;">Prix total</div>
+          </div>
+          <div class="col-6">
+            <div class="text-center">{{ total_price_taxed }}</div>
+            <div class="text-center" style="font-size: 14px; color: dimgray;">Prix total avec taxes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-md-6">
-      <h2>INVOICE</h2>
-      <div class="row">
-        <div class="col-6">
-          <p>Invoice No: #00{{ no }}</p>
-          <p>Invoice token: {{ _id }}</p>
-        </div>
-        <div class="col-6">
-          <p>{{ company }}</p>
-          <p>{{ name }}@gmail.com</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <p>Creation date: {{ date }}</p>
-        </div>
-        <div class="col-6">
-          <p>{{ name }} {{ surName }}</p>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 20px;">
-        <button class="btn btn-primary" (click)="addProductToInvoice()">Add Products</button>
-        <div class="col-6">
-          <select class="form-select" [(ngModel)]="product" name="product">
-            <option value="Sfinaria">Sfinaria</option>
-            <option value="sala9">sala9</option>
-            <option value="Kromb">Kromb</option>
-            <option value="Lo7">Lo7</option>
-            <option value="Ma3dnous">Ma3dnous</option>
-          </select>
-        </div>
-        <div class="col-6">
-          <input class="form-control" [(ngModel)]="quant" required name="quant">
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th scope="col">No.</th>
-          <th scope="col">Product Name</th>
-          <th scope="col">Category Name</th>
-          <th scope="col">Price</th>
-          <th scope="col">Product Quantity</th>
-          <th scope="col">Product Total Price</th>
-          <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let element of dataSource">
-          <th scope="row">{{ element.id }}</th>
-          <td>{{ element.name }}</td>
-          <td>{{ element.category_name }}</td>
-          <td>{{ element.price }}</td>
-          <td>{{ element.quantity }}</td>
-          <td>{{ element.total_price }}</td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteProductFromInvoice(element.id)">Delete</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-      <div class="row" style="width: 100%; margin-top: 20px;">
-        <div class="col-6">
-          <div class="text-center">{{ total_price }}</div>
-          <div class="text-center" style="font-size: 14px; color: dimgray;">Total Price</div>
-        </div>
-        <div class="col-6">
-          <div class="text-center">{{ total_price_taxed }}</div>
-          <div class="text-center" style="font-size: 14px; color: dimgray;">Total Price with Tax</div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </div>
+<app-footer></app-footer>
+
