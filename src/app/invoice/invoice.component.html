@@ -1,0 +1,51 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<main id="main" class="main">
+  <section class="section">
+    <div id="carosselsContainer" class="d-flex flex-column align-items-stretch container">
+      <div>
+        <h2>Factures</h2>
+        <div class="d-flex justify-content-between align-items-center">
+          <div style="font-size: 14px;">Admin name: Soulayma abdenbi</div>
+          <div>
+            <button class="btn btn-primary mr-2" [routerLink]="['/invoice/add/']">Ajouter un facture</button>
+          </div>
+        </div>
+      </div>
+
+      <table class="table mt-4">
+        <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Créé à</th>
+          <th scope="col">Nom du client</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Nom d'entreprise</th>
+          <th scope="col">Methode de paiement</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let element of dataSource">
+          <td>{{element.id}}</td>
+          <td>{{element.creation_date}}</td>
+          <td>{{element.name_client}}</td>
+          <td>{{element.surname_client}}</td>
+          <td>{{element.entreprise_name}}</td>
+          <td>{{element.mode_payment}}</td>
+          <td>
+            <button class="btn btn-primary mr-2" [routerLink]="['/invoice/details/', element.id]">Voir details</button>
+            <button class="btn btn-danger" (click)="deleteInvoice(element.id)">supprimer</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
+
+
+
