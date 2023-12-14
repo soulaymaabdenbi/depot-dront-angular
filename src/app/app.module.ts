@@ -18,6 +18,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ProductComponent } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import {AddInvoiceComponent} from "./invoice/add-invoice/add-invoice.component";
+import {InvoiceDetailsComponent} from "./invoice/invoice-details/invoice-details.component";
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { InvoiceComponent } from './invoice/invoice.component';
     ProductComponent,
     CategoryComponent,
     InvoiceComponent,
-
+    AddInvoiceComponent,
+    InvoiceDetailsComponent,
   ],
   exports: [
     HeaderComponent,

@@ -1,0 +1,76 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<main id="main" class="main">
+  <section class="section">
+    <div id="carosselsContainer" class="container mt-4">
+      <section class="sample-app-content">
+        <form #myForm="ngForm" (ngSubmit)="onSubmitTemplateBased()">
+          <div class="d-flex flex-column align-items-center">
+            <div class="form-group">
+              <label for="client">Client</label>
+              <select class="form-control" (change)="changeClient($event.target)" id="client" name="client">
+                <option value="Alaeddine">Bouhajja Alaeddine</option>
+                <option value="Ala">Mohamed Ala</option>
+                <option value="Chiraz">Chiraz</option>
+              </select>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="companyName">Company Name</label>
+                  <input type="text" class="form-control" [(ngModel)]="client.entreprise" id="companyName" name="entreprise" required [disabled]="true">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="companyTel">Company Tel</label>
+                  <input type="text" class="form-control" [(ngModel)]="client.tel" id="companyTel" name="tel" required [disabled]="true">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="companyEmail">Company Email</label>
+                  <input type="text" class="form-control" [(ngModel)]="client.email" id="companyEmail" name="email" required [disabled]="true">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="companyLocation">Company Location</label>
+                  <input type="text" class="form-control" [(ngModel)]="client.location" id="companyLocation" name="location" required [disabled]="true">
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="paymentMethode">Payment Methode</label>
+                  <select class="form-control" [(ngModel)]="methode" id="paymentMethode" name="methode">
+                    <option value="Cash">Cash</option>
+                    <option value="Credit card">Credit card</option>
+                    <option value="Mobile points">Mobile points</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="taxValue">Tax Value</label>
+                  <input type="text" class="form-control" [(ngModel)]="tax" id="taxValue" name="tax" required>
+                </div>
+              </div>
+            </div>
+            <p class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+            </p>
+          </div>
+        </form>
+      </section>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
+
+
+
+
