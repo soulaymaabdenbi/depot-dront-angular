@@ -1,0 +1,106 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<main id="main" class="main">
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <!-- Section Title -->
+            <div class="row">
+              <div class="col-6">
+                <h5 class="card-title">List of Suppliers</h5>
+              </div>
+              <div class="col-6 text-right mt-3">
+                <!-- Add Supplier Button -->
+                <button class="btn offset" (click)="openSupplierModal()">
+                  <i class="fa fa-plus mr-1"></i>Add Supplier
+                </button>
+              </div>
+            </div>
+
+            <!-- Supplier Modal -->
+            <ng-template #supplierModal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title">{{ isEditMode ? 'Edit' : 'Add' }} Supplier</h4>
+                <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="supplierForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="name">Supplier Name</label>
+                    <input type="text" id="name" class="form-control" formControlName="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" class="form-control" formControlName="location">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" class="form-control" formControlName="email">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+              </div>
+            </ng-template>
+
+            <!-- Search Box -->
+            <div class="row mt-3">
+              <div class="col">
+                <input type="search" class="form-control" placeholder="Search Suppliers..." (keyup)="filterSuppliers($event)">
+              </div>
+            </div>
+
+            <!-- Supplier Table -->
+            <div class="row mt-3">
+              <div class="col">
+                <!-- Table -->
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Location</th>
+                      <th>Email</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let supplier of filteredSuppliers">
+                      <!-- Supplier Name -->
+                      <td>{{ supplier.name }}</td>
+
+                      <!-- Location -->
+                      <td>{{ supplier.location }}</td>
+
+                      <!-- Email -->
+                      <td>{{ supplier.email }}</td>
+
+                      <!-- Actions -->
+                      <td>
+                        <button type="button" class="btn btn-warning btn-sm" (click)="openSupplierModal(supplier)">
+                          <i class="fa fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="deleteSupplier(supplier.id)">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- End of Table -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

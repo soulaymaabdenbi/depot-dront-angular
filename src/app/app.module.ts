@@ -19,6 +19,7 @@ import { CategoryComponent } from './category/category.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import {AddInvoiceComponent} from "./invoice/add-invoice/add-invoice.component";
 import {InvoiceDetailsComponent} from "./invoice/invoice-details/invoice-details.component";
+import { FournisseurComponent } from './Fournisseur/fournisseur/fournisseur.component';
 
 
 
@@ -37,6 +38,8 @@ import {InvoiceDetailsComponent} from "./invoice/invoice-details/invoice-details
     InvoiceComponent,
     AddInvoiceComponent,
     InvoiceDetailsComponent,
+    FournisseurComponent,
+
   ],
   exports: [
     HeaderComponent,

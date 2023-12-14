@@ -9,6 +9,8 @@ import {InvoiceComponent} from "./invoice/invoice.component";
 import {InvoiceDetailsComponent} from "./invoice/invoice-details/invoice-details.component";
 import {AddInvoiceComponent} from "./invoice/add-invoice/add-invoice.component";
 import { EmployeeRoutingModule } from './employee/Routing/Employee-routing.module';
+import { FournisseurComponent } from './Fournisseur/fournisseur/fournisseur.component';
+
 const routes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'Login', component: LoginComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'invoice', component: InvoiceComponent},
   { path: 'invoice/details/:id', component: InvoiceDetailsComponent},
   { path: 'invoice/add', component: AddInvoiceComponent},
+  { path: 'fournisseurs', component: FournisseurComponent },
+
   {path: '**', component: E404Component},
 
 ];
