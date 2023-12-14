@@ -2,14 +2,15 @@
 <app-menu></app-menu>
 
 <main id="main" class="main">
-  <section class="section">
+  <section class="section" style="margin: auto;">
     <div id="carosselsContainer" class="d-flex flex-column align-items-stretch container">
       <div>
         <h2>Factures</h2>
         <div class="d-flex justify-content-between align-items-center">
-          <div style="font-size: 14px;">Admin name: Soulayma abdenbi</div>
+          <div style="font-size: 14px;"></div>
           <div>
-            <button class="btn btn-primary mr-2" [routerLink]="['/invoice/add/']">Ajouter un facture</button>
+            <button class="btn btn-primary mr-2" [routerLink]="['/invoice/add/']">
+              <i class="fa fa-plus mr-1"></i>Ajouter une facture</button>
           </div>
         </div>
       </div>
@@ -34,10 +35,11 @@
           <td>{{element.surname_client}}</td>
           <td>{{element.entreprise_name}}</td>
           <td>{{element.mode_payment}}</td>
-          <td>
-            <button class="btn btn-primary mr-2" [routerLink]="['/invoice/details/', element.id]">Voir details</button>
-            <button class="btn btn-danger" (click)="deleteInvoice(element.id)">supprimer</button>
+          <td style="display: flex; align-items: center;">
+            <button class="btn btn-primary mr-2" [routerLink]="['/invoice/details/', element.id]">details</button>
+            <button class="btn btn-danger" (click)="deleteInvoice(element.id)">Supprimer</button>
           </td>
+
         </tr>
         </tbody>
       </table>

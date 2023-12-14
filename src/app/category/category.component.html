@@ -10,20 +10,15 @@
             <!-- Section Title -->
             <div class="row">
               <div class="col-6">
-                <h5 class="card-title">List of Categories</h5>
+                <h5 class="card-title">Liste des catégories</h5>
               </div>
-              <div class="col-6 text-right mt-3">
-                <!-- Add Category Button -->
-                <button class="btn offset" (click)="openCategoryModal()">
-                  <i class="fa fa-plus mr-1"></i>Add Category
-                </button>
-              </div>
+
             </div>
 
             <!-- Category Modal -->
             <ng-template #categoryModal let-modal>
               <div class="modal-header">
-                <h4 class="modal-title">{{ isEditMode ? 'Edit' : 'Add' }} Category</h4>
+                <h4 class="modal-title">{{ isEditMode ? 'Éditer' : 'Ajouter' }} Catégorie</h4>
                 <button type="button" class="close" (click)="modal.dismiss('Cross click')">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -31,15 +26,16 @@
               <div class="modal-body">
                 <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
                   <div class="form-group">
-                    <label for="name">Category Name</label>
+                    <label for="name">Nom de catégorie</label>
                     <input type="text" id="name" class="form-control" formControlName="name">
                   </div>
                   <div class="form-group">
-                    <label for="reference">Reference</label>
+                    <label for="reference">Référence</label>
                     <input type="text" id="reference" class="form-control" formControlName="reference">
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+
                   </div>
                 </form>
               </div>
@@ -47,10 +43,19 @@
 
             <!-- Search Box -->
             <div class="row mt-3">
-              <div class="col">
-                <input type="search" class="form-control" placeholder="Search Categories..." (keyup)="filterCategories($event)">
+              <div class="col-6">
+                <input type="search" class="form-control" placeholder="Chercher Categories..." (keyup)="filterCategories($event)">
+              </div>
+              <div class="col-6 " style="text-align: right">
+                <!-- Add Category Button -->
+                <button class="btn btn-primary" (click)="openCategoryModal()">
+                  <i class="fa fa-plus mr-1"></i>Ajouter une catégorie
+                </button>
               </div>
             </div>
+
+
+
 
             <!-- Category Table -->
             <div class="row mt-3">
@@ -64,14 +69,14 @@
                   [scrollbarH]="true">
 
                   <!-- Category Name Column -->
-                  <ngx-datatable-column name="Name" prop="name">
+                  <ngx-datatable-column name="Nom" prop="name">
                     <ng-template let-row="row" ngx-datatable-cell-template>
                       {{ row.name }}
                     </ng-template>
                   </ngx-datatable-column>
 
                   <!-- Reference Column -->
-                  <ngx-datatable-column name="Reference" prop="reference">
+                  <ngx-datatable-column name="Référence" prop="reference">
                     <ng-template let-row="row" ngx-datatable-cell-template>
                       {{ row.reference }}
                     </ng-template>

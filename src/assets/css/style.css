@@ -1075,32 +1075,32 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 8px;
   color: #012970;
 }
-button.offset {
-  --color: rgb(118, 148, 248); /* Set your desired color */
-  --hover: rgba(93, 130, 255, 0.99); /* Set your desired hover color */
+/*button.offset {*/
+/*  --color: rgb(118, 148, 248); !* Set your desired color *!*/
+/*  --hover: rgba(93, 130, 255, 0.99); !* Set your desired hover color *!*/
 
-  color: var(--color);
-  transition: 0.25s;
-  background: none;
-  border: 2px solid;
-  font: inherit;
-  line-height: 1;
-  margin: 0.5em;
-  padding: 1em 2em;
+/*  color: var(--color);*/
+/*  transition: 0.25s;*/
+/*  background: none;*/
+/*  border: 2px solid;*/
+/*  font: inherit;*/
+/*  line-height: 1;*/
+/*  margin: 0.5em;*/
+/*  padding: 1em 2em;*/
 
-  box-shadow:
-    0.3em 0.3em 0 0 var(--color),
-    inset 0.3em 0.3em 0 0 var(--color);
+/*  box-shadow:*/
+/*    0.3em 0.3em 0 0 var(--color),*/
+/*    inset 0.3em 0.3em 0 0 var(--color);*/
 
-  &:hover,
-  &:focus {
-    box-shadow:
-      0 0 0 0 var(--hover),
-      inset 6em 3.5em 0 0 var(--hover);
-    border-color: var(--hover);
-    color: #fff;
-  }
-}
+/*  &:hover,*/
+/*  &:focus {*/
+/*    box-shadow:*/
+/*      0 0 0 0 var(--hover),*/
+/*      inset 6em 3.5em 0 0 var(--hover);*/
+/*    border-color: var(--hover);*/
+/*    color: #fff;*/
+/*  }*/
+/*}*/
 
 
 
